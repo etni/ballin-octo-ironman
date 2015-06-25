@@ -11,9 +11,9 @@ Installing mongodb
 
 ## Week 2
 
-* mongo does not stores text but on the BSON spec http://bsonspec.org/
+* mongodb internal storage is BSON. not plain text. 
 
-* upsert: update, or insert if not exists.
+* BSON spec [http://bsonspec.org/]
 
 * update has four operations
   * wholesale update (replaces the entire record with the record). this will replace the entire record with the record passed on the second parameter.
@@ -33,5 +33,17 @@ Installing mongodb
     db.users.update( { name:'test'}, { field: 'value'}, {upsert: true})
     ```
 
+  * an empty object { } works as a selector for all documents on the collection.
+
+    the default behavior on mongodb if a selector for all documents is specified is to update only one record... unless the { multi: true} is passed as the third parameter.. for instance.
+
+    ```javascript
+    db.users.update( {}, {$set { title: 'Dr.'}})
+    // this will only update one record     
+    
+
+    db.users.update( {}, {$set { title: 'Dr.'}}, {multi: true})
+    // this will update all records on the collection
+    ```
 
 
