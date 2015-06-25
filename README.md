@@ -1,2 +1,3 @@
 # ballin-octo-ironman
-code for mongo courseware
+## Notes from the Mongo University Courseware.
+
