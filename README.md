@@ -16,11 +16,12 @@ Installing mongodb
 * upsert: update, or insert if not exists.
 
 * update has four operations
-  * wholesale update (replaces the entire record with the record)
+  * wholesale update (replaces the entire record with the record). this will replace the entire record with the record passed on the second parameter.
 
-    db.users.update( {name:'test'}, { field: 'value'} )
+```javascript
+db.users.update( {name:'test'}, { field: 'value'} )
+```
 
-this will replace the entire record with the record passed on the second parameter.
 
   * set field.. only updates the fields or adds it if it doesn't exist
 
