@@ -12,3 +12,24 @@ Installing mongodb
 ## Week 2
 
 * mongo does not stores text but on the BSON spec http://bsonspec.org/
+
+* upsert: update, or insert if not exists.
+
+* update has four operations
+** wholesale update (replaces the entire record with the record)
+
+    db.users.update( {name:'test'}, { field: 'value'} )
+
+this will replace the entire record with the record passed on the second parameter.
+
+** set field.. only updates the fields or adds it if it doesn't exist
+
+    db.users.update( {name:'test'}, { $set: { field: 'value', field2: 'value2'}})
+
+** upsert: update document or insert one if it doesn't exist.
+
+    db.users.update( { name:'test'}, { field: 'value'}, {upsert: true})
+
+
+
+
